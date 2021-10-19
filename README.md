@@ -1,7 +1,8 @@
 # Student-Report
-This is a platform where a user (Course Coordinator) can upload student results and store on the Celo Blockchain
+
 ## Description
 
+This is a platform where a user (Course Coordinator) can upload student results and store on the Celo Blockchain
 
 ## Live Demo
 [Student Report](https://mahlang03.github.io/Student-Report/)
