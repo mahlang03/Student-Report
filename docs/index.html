@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Transcript</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<style media="screen">
+body {
+  background-image: url('https://images.unsplash.com/photo-1516053256215-94022213b13c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHNjaG9vbHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+    .custom-table tbody tr {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; }
+    .custom-table tbody tr:hover td, .custom-table tbody tr:focus td {
+    color: #501bab; }
+    .custom-table tbody tr:hover td a, .custom-table tbody tr:focus td a {
+    color: #fdd114; }
+    .custom-table tbody tr:hover td .more, .custom-table tbody tr:focus td .more {
+    color: #fdd114; }
+    .custom-table .td-box-wrap {
+    padding: 0; }
+    .custom-table .box {
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    .custom-table .box td, .custom-table .box th {
+    border: none !important; }
+    .custom-table tbody tr a {
+      color: #1c14fd;
+    }
+
+</style>
+<body>
+  <!-- Navbar -->
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand">&nbsp;Student Record</a>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <span  style="color:black;" class="bal nav-link border btn-light rounded-pill bg-light">
+                <span id="balance">0</span>
+                cUSD
+              </span>
+            </li>
+            <li class="nav-item">
+              <a class="addr nav-link border btn btn-light rounded-pill" href="#" id='blockchainlink' target="_blank" style="display: none; color:black;">
+                <span style="color:black;" id="address">0x874....C1</span>
+              </a>
+            </li>
+          </ul>
+
+
+      </div>
+    </nav>
+    <div style=" padding-bottom: 30px; height: 100px;">
+
+      <nav class="navbar navbar-expand-lg back" style="background-color: #f5f5f5 !important;">
+        <div class="container">
+          <div class="navbar-brand">
+            <div class="alert alert-warning sticky-top" role="alert">
+              <span id="notification">Connect Your Wallet</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+  </div>
+
+  <div class="content">
+    <div class="page-hero bg-image overlay-dark">
+  <div class="hero-section">
+    <div class="container text-center wow zoomIn">
+      <h1 class="display-4">Welcome. This is for admin only</h1>
+      <a class="btn btn-primary m-2" data-toggle="modal" data-target="#addModal">Add Student Record</a>
+
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+
+
+      <div class="table-responsive">
+
+        <table class="table table-striped custom-table">
+          <thead>
+            <tr>
+
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Reg Number</th>
+              <th scope="col">Department</th>
+              <th scope="col">Level</th>
+              <th scope="col">Summary</th>
+            </tr>
+          </thead>
+
+          <tbody id="sect">
+
+
+
+          </tbody>
+
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Result</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="stuName" class="col-form-label">Student Name</label>
+              <input type="text" class="form-control" id="stuName">
+            </div>
+            <div class="form-group">
+              <label for="regNum" class="col-form-label">Registration Number</label>
+              <input type="text" class="form-control" id="regNum">
+            </div>
+            <div class="form-group">
+              <label for="stuDept" class="col-form-label">Department</label>
+              <input type="text" class="form-control" id="stuDept">
+            </div>
+            <div class="form-group">
+              <label for="stuLevel" class="col-form-label">Level</label>
+              <input type="text" class="form-control" id="stuLevel">
+            </div>
+            <div class="form-group">
+              <label for="stuSum" class="col-form-label">Summary</label>
+              <input type="text" class="form-control" id="stuSum">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Result summary</label>
+              <textarea class="form-control" id="stuDet"></textarea>
+            </div>
+
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="addResultBtn">Add Result</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
