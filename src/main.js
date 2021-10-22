@@ -13,7 +13,7 @@ const ERC20_DECIMALS = 18
 const StudentReportContractAddress = "0x22DdF809a6bf95819A915be7D1a10aC19Dc9519b"
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
 
-
+// Connect to Celo Wallet
 const connectCeloWallet = async function() {
   if (window.celo) {
     notification("⚠️ Please approve this DApp to use it.")
@@ -37,6 +37,7 @@ const connectCeloWallet = async function() {
   }
 }
 
+// Get Wallet Balance
 const getBalance = async function() {
   notification("⌛ Loading...")
   const totalBalance = await kit.getTotalBalance(kit.defaultAccount)
@@ -45,15 +46,18 @@ const getBalance = async function() {
   notificationOff()
 }
 
+// Notification on
 function notification(_text) {
   document.querySelector(".alert").style.display = "block"
   document.querySelector("#notification").textContent = _text
 }
 
+// Notification off
 function notificationOff() {
   document.querySelector(".alert").style.display = "none"
 }
 
+// Get Saved Results
 const getResults = async function() {
   const _stuNum = await contract.methods.totalStudents().call()
   const _results = []
@@ -78,6 +82,7 @@ for (let i = 0; i < _stuNum; i++) {
   renderStu()
 }
 
+// Student Table Template
 function resultTemplate(_result) {
   return `
 
@@ -89,7 +94,7 @@ function resultTemplate(_result) {
       <td>${_result.summary}</td>
       <td><a data-toggle="modal" data-target="#detail-${_result.index}">Details</a></td>
 
-      <!-- Modal -->
+      <!-- Details Modal -->
       <div class="modal fade" id="detail-${_result.index}" tabindex="-1" role="dialog" aria-labelledby="readLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -111,6 +116,7 @@ function resultTemplate(_result) {
   `
 }
 
+// Display Student Result
 function renderStu() {
   document.getElementById("sect").innerHTML = ""
   students.forEach((_result) => {
@@ -120,7 +126,7 @@ function renderStu() {
   })
 }
 
-// Create Post
+// Add Student
 document.querySelector("#addResultBtn").addEventListener("click", async (e) => {
     const params = [
       document.getElementById("stuName").value,
@@ -153,6 +159,7 @@ window.addEventListener('load', async () => {
 });
 
 
+// Display Part of Address 
 function editAddress(_address){
   let address = document.querySelector(".addr")
   let add = _address
