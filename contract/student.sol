@@ -18,6 +18,7 @@ contract StudentReport {
     
     mapping (uint => Student) internal students;
     
+    //Add Student Details
     function addStudent(
         string memory _name,
         string memory _regNum,
@@ -38,7 +39,8 @@ contract StudentReport {
         );
         numStudents++;
         }
-        
+     
+    //Display Student Details 
     function viewStudents(uint _index) public view returns (
         address,
         string memory, 
@@ -60,6 +62,7 @@ contract StudentReport {
         );
     }
     
+    //Get Student Count
     function totalStudents() public view returns (uint) {
         return (numStudents);
     }
