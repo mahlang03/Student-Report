@@ -116,25 +116,33 @@ function resultTemplate(_result) {
   `
 }
 
+const sect = document.getElementById("sect")
 // Display Student Result
 function renderStu() {
-  document.getElementById("sect").innerHTML = ""
+  sect.innerHTML = ""
   students.forEach((_result) => {
     const newDiv = document.createElement("tr")
     newDiv.innerHTML = resultTemplate(_result)
-    document.getElementById("sect").appendChild(newDiv)
+    sect.appendChild(newDiv)
   })
 }
+
+let stuName = document.getElementById("stuName")
+let regNum = document.getElementById("regNum")
+let stuDept = document.getElementById("stuDept")
+let stuLevel = document.getElementById("stuLevel")
+let stuSum = document.getElementById("stuSum")
+let stuDet = document.getElementById("stuDet")
 
 // Add Student
 document.querySelector("#addResultBtn").addEventListener("click", async (e) => {
     const params = [
-      document.getElementById("stuName").value,
-      document.getElementById("regNum").value,
-      document.getElementById("stuDept").value,
-      document.getElementById("stuLevel").value,
-      document.getElementById("stuSum").value,
-      document.getElementById("stuDet").value,
+      stuName.value,
+      regNum.value,
+      stuDept.value,
+      stuLevel.value,
+      stuSum.value,
+      stuDet.value,
     ]
     notification(`⌛ Adding "${params[0]}"...`)
 
@@ -142,6 +150,12 @@ document.querySelector("#addResultBtn").addEventListener("click", async (e) => {
   try {
     await contract.methods.addStudent(...params).send({ from: kit.defaultAccount })
       notification(`🎉 You successfully added "${params[1]}".`)
+      stuName.value = ''
+      regNum.value = ''
+      stuDept.value = ''
+      stuLevel.value = ''
+      stuSum.value = ''
+      stuDet.value = ''
       getResults()
   } catch (error) {
     notification(`⚠️ ${error}.`)
